@@ -1,32 +1,51 @@
-# Cloud-Native Platform Engineering Lab — System Architecture
+# Cloud-Native Platform Engineering Lab
 
-## 1. Local Development Layer
-- WSL (developer environment)
+## Platform Layers
 
-## 2. Container Layer
-- Docker (image building)
+Local Development Layer
+    ↓
+WSL (Ubuntu)
 
-## 3. Orchestration Layer
-- Kind Kubernetes (local cluster)
+Infrastructure Layer
+    ↓
+Terraform
 
-## 4. Infrastructure Layer
-- Terraform (AWS infrastructure provisioning - future phase)
+Compute Layer
+    ↓
+AWS EC2 (later phase)
 
-## 5. Application Layer
-- Voting system (React + Go + MongoDB)
+Container Runtime
+    ↓
+Docker
 
-## 6. Delivery Layer
-- GitHub Actions CI/CD pipelines
+Container Orchestration
+    ↓
+Kubernetes (Kind locally)
 
-## 7. Operations Layer
-- Monitoring, logging (Prometheus/Grafana - future)
+Namespaces
+    ├── platform
+    ├── app
+    ├── monitoring
+    └── ingress
 
-## 8. Security Layer
-- Kubernetes Secrets
-- IAM roles (AWS)
-- RBAC policies
+Application Layer
+    ├── React Frontend
+    ├── Go API
+    └── MongoDB Replica Set
 
-## 9. Documentation Layer
-- ADRs
-- Architecture diagrams
-- Runbooks
+Operations Layer
+    ├── Logging
+    ├── Monitoring
+    ├── Health Checks
+    └── Troubleshooting
+
+Delivery Layer
+    ↓
+GitHub Actions CI/CD
+
+Documentation Layer
+    ├── ADRs
+    ├── Runbooks
+    ├── Architecture
+    ├── Cost Documentation
+    └── Security Documentation
