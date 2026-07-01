@@ -316,7 +316,7 @@ This separation follows Platform Engineering principles by keeping responsibilit
 
 **Screenshot**
 
-> Insert repository structure screenshot here.
+<img width="869" height="83" alt="repo-structure" src="https://github.com/user-attachments/assets/21c2d52f-5c44-4348-a68d-ce8b81c95f07" />
 
 ---
 
@@ -332,7 +332,7 @@ This confirms that the Kubernetes cluster is operational and that the control-pl
 
 **Screenshot**
 
-> Insert `kubectl get nodes` screenshot here.
+<img width="548" height="42" alt="kubernetes-cluster" src="https://github.com/user-attachments/assets/f8d1c58a-c145-4f26-9f8a-d921d6556a4c" />
 
 ---
 
@@ -350,7 +350,7 @@ Namespace separation improves organisation, security, and operational management
 
 **Screenshot**
 
-> Insert `kubectl get namespaces` screenshot here.
+<img width="571" height="171" alt="kubernetes-namespaces" src="https://github.com/user-attachments/assets/b73da4a3-9a28-4ff4-bcad-2cfc15eafc55" />
 
 ---
 
@@ -374,7 +374,7 @@ Together these resources form the application's runtime environment.
 
 **Screenshot**
 
-> Insert `kubectl get all -n app` screenshot here.
+<img width="611" height="252" alt="kubernetes-app-resources" src="https://github.com/user-attachments/assets/243b44cb-ce7e-4f37-9598-c0be4e8311a7" />
 
 ---
 
@@ -394,7 +394,7 @@ This is an essential characteristic of stateful workloads running on Kubernetes.
 
 **Screenshot**
 
-> Insert `kubectl get pvc -n app` screenshot here.
+<img width="944" height="72" alt="storage" src="https://github.com/user-attachments/assets/7282311d-5bf4-474c-97f5-65029cbbfa8b" />
 
 ---
 
@@ -412,7 +412,7 @@ The Go API communicates with MongoDB through Kubernetes DNS rather than fixed IP
 
 **Screenshot**
 
-> Insert `kubectl get svc -n app` screenshot here.
+<img width="574" height="58" alt="kubernetes-services" src="https://github.com/user-attachments/assets/be830512-d192-4a1b-a271-5d3318aa685b" />
 
 ---
 
@@ -435,7 +435,7 @@ This verifies that:
 
 **Screenshot**
 
-> Insert `kubectl logs deployment/voting-api -n app` screenshot here.
+<img width="707" height="43" alt="app-logs" src="https://github.com/user-attachments/assets/6b3ce63e-c49e-460b-a172-d340a1480aa2" />
 
 ---
 
@@ -459,7 +459,7 @@ This confirms successful end-to-end communication from the client to the Go API 
 
 **Screenshot**
 
-> Insert browser screenshot here.
+<img width="368" height="103" alt="app-running" src="https://github.com/user-attachments/assets/775f2097-f1ba-4bae-ad60-fcf8edc31da3" />
 
 ---
 
@@ -512,7 +512,6 @@ The next engineering milestone is replacing temporary port-forwarding with an NG
 
 **Maya Elfeky**
 
-Maya Elfeky
 
 Cloud | DevOps | Kubernetes
 
