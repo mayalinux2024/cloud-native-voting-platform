@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: voting-api
+  namespace: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: voting-api
+  template:
+    metadata:
+      labels:
+        app: voting-api
+    spec:
+      containers:
+        - name: voting-api
+          image: voting-api:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+
+          env:
+            - name: MONGO_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-secret
+                  key: mongo-root-username
+
+            - name: MONGO_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-secret
+                  key: mongo-root-password
+
+            - name: MONGO_HOST
+              value: mongodb.app.svc.cluster.local
