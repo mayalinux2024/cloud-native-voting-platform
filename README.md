@@ -300,22 +300,185 @@ This makes the project's evolution easier to understand and mirrors collaborativ
 
 ---
 
+---
+
 # Screenshots
 
-The repository includes screenshots documenting the platform as it evolves.
+The following screenshots document the evolution of the platform from infrastructure provisioning to a running cloud-native application.
 
-Suggested order:
+---
 
-1. Repository structure
-2. Kubernetes cluster
-3. Namespaces
-4. Running workloads
-5. Persistent Volume Claim
-6. Services
-7. Application logs
-8. Browser showing the running API
+## Repository Structure
 
-Each screenshot demonstrates an engineering milestone rather than simply showing command output.
+The repository is organised into separate directories for application code, Kubernetes manifests, infrastructure, documentation, automation scripts, and supporting assets.
+
+This separation follows Platform Engineering principles by keeping responsibilities clearly defined and making the repository easier to maintain as it grows.
+
+**Screenshot**
+
+> Insert repository structure screenshot here.
+
+---
+
+## Kubernetes Cluster
+
+**Command**
+
+```bash
+kubectl get nodes
+```
+
+This confirms that the Kubernetes cluster is operational and that the control-plane node is in the **Ready** state.
+
+**Screenshot**
+
+> Insert `kubectl get nodes` screenshot here.
+
+---
+
+## Kubernetes Namespaces
+
+**Command**
+
+```bash
+kubectl get namespaces
+```
+
+The platform is divided into dedicated namespaces (`app`, `platform`, `monitoring`, and `ingress`) to isolate workloads and prepare the cluster for future expansion.
+
+Namespace separation improves organisation, security, and operational management.
+
+**Screenshot**
+
+> Insert `kubectl get namespaces` screenshot here.
+
+---
+
+## Kubernetes Application Resources
+
+**Command**
+
+```bash
+kubectl get all -n app
+```
+
+This demonstrates the complete application stack running inside Kubernetes, including:
+
+- Deployment
+- StatefulSet
+- ReplicaSet
+- Pods
+- Services
+
+Together these resources form the application's runtime environment.
+
+**Screenshot**
+
+> Insert `kubectl get all -n app` screenshot here.
+
+---
+
+## Persistent Storage
+
+**Command**
+
+```bash
+kubectl get pvc -n app
+```
+
+MongoDB is deployed using a StatefulSet with a PersistentVolumeClaim (PVC).
+
+The PVC ensures application data persists even if the MongoDB pod is recreated.
+
+This is an essential characteristic of stateful workloads running on Kubernetes.
+
+**Screenshot**
+
+> Insert `kubectl get pvc -n app` screenshot here.
+
+---
+
+## Kubernetes Services
+
+**Command**
+
+```bash
+kubectl get svc -n app
+```
+
+Kubernetes Services provide stable networking and service discovery for the application.
+
+The Go API communicates with MongoDB through Kubernetes DNS rather than fixed IP addresses, allowing pods to be recreated without breaking application connectivity.
+
+**Screenshot**
+
+> Insert `kubectl get svc -n app` screenshot here.
+
+---
+
+## Application Logs
+
+**Command**
+
+```bash
+kubectl logs deployment/voting-api -n app
+```
+
+The application logs confirm that the Go API successfully connects to MongoDB during startup.
+
+This verifies that:
+
+- Kubernetes Secrets are injected correctly
+- DNS resolution is functioning
+- Service discovery is working
+- Network communication between application components is successful
+
+**Screenshot**
+
+> Insert `kubectl logs deployment/voting-api -n app` screenshot here.
+
+---
+
+## Browser Verification
+
+The application's health endpoint is successfully accessed through the browser using Kubernetes port forwarding.
+
+**URL**
+
+```
+http://localhost:8080/health
+```
+
+**Expected Response**
+
+```
+API is running
+```
+
+This confirms successful end-to-end communication from the client to the Go API running inside Kubernetes.
+
+**Screenshot**
+
+> Insert browser screenshot here.
+
+---
+
+## Platform Summary
+
+At this stage the platform successfully demonstrates:
+
+- Kubernetes cluster provisioning using Kind
+- Namespace isolation
+- Stateful MongoDB deployment
+- Persistent storage with PersistentVolumeClaims
+- Secure credential management using Kubernetes Secrets
+- Internal service discovery using Kubernetes Services
+- Go API deployment
+- Containerisation with Docker
+- End-to-end communication between the API and MongoDB
+- Successful application verification through the browser
+
+This milestone establishes a solid foundation for the next phases of the project, including Ingress routing, frontend integration, monitoring, CI/CD automation, and cloud deployment on AWS.
 
 ---
 
@@ -349,8 +512,10 @@ The next engineering milestone is replacing temporary port-forwarding with an NG
 
 **Maya Elfeky**
 
-Cloud & DevOps Engineer
+Maya Elfeky
 
-AWS Certified Cloud Practitioner
+Cloud | DevOps | Kubernetes
 
 KCNA – Kubernetes and Cloud Native Associate
+
+AWS Cloud Practitioner (CLF-C02) Training
