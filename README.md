@@ -48,6 +48,21 @@ The long-term goal is to evolve this repository into a realistic cloud-native pl
              local-path Storage
 ```
 
+## Architecture Decision Records
+
+This repository documents important engineering decisions using Architecture Decision Records (ADRs).
+
+Current ADRs include:
+
+- ADR-001 – Project Vision
+- ADR-002 – MongoDB Deployment Strategy
+- ADR-003 – Headless Service for MongoDB
+- ADR-004 – Persistent Storage Strategy
+- ADR-005 – Secrets Management
+- ADR-006 – Local Platform Architecture
+
+Each ADR captures the context, decision, rationale, and consequences behind significant architectural choices, providing a documented history of how the platform evolved.
+
 ---
 
 # Current Platform Status
@@ -241,48 +256,53 @@ This makes the project's evolution easier to understand and mirrors collaborativ
 
 ---
 
-# Roadmap
+## Roadmap
 
-## Phase 1
-
+### Phase 1
 - ✅ Repository organization
 - ✅ Documentation
 - ✅ Platform architecture
 
----
-
-## Phase 2
-
+### Phase 2
 - ✅ Kind Kubernetes cluster
 - ✅ Namespaces
-- ✅ NGINX Ingress installation
+- ✅ NGINX Ingress Controller installation
 
----
-
-## Phase 3
-
+### Phase 3
 - ✅ MongoDB StatefulSet
 - ✅ Persistent storage
 - ✅ Kubernetes Secret
 - ✅ Headless Service
 
----
-
-## Phase 4
-
+### Phase 4
 - ✅ Go API
 - ✅ Docker image
 - ✅ Kubernetes Deployment
 - ✅ Kubernetes Service
 - ✅ MongoDB connectivity
 
----
-
-## Phase 5 (Next)
-
+### Phase 5 (Current)
 - ⏳ NGINX Ingress routing
+- ⏳ Path-based routing
+- ⏳ Remove dependency on `kubectl port-forward`
 - ⏳ Public HTTP access
 - ⏳ End-to-end request flow
+
+### Phase 6
+- ⏳ Prometheus
+- ⏳ Grafana
+- ⏳ Kubernetes metrics
+- ⏳ Operational dashboards
+
+### Phase 7
+- ⏳ GitHub Actions
+- ⏳ Automated Docker builds
+- ⏳ Kubernetes deployment pipeline
+
+### Phase 8
+- ⏳ Terraform infrastructure
+- ⏳ AWS deployment
+- ⏳ Production-ready cloud platform
 
 ---
 
